@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-void: #050608;
+  --color-obsidian: #0B0D12;
+  --color-graphite: #12151E;
+  --color-ink-primary: #F3F5FA;
+  --color-ink-secondary: #98A1B5;
+  --color-ink-muted: #5F677A;
+  --color-eon-blue: #5B7CFA;
+  --color-eon-ice: #9BB4FF;
+}
+
+@layer base {
+  html {
+    background-color: #050608;
+    color: #F3F5FA;
+    font-family: var(--font-sans);
+    letter-spacing: 0.004em;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  h1, h2 {
+    text-wrap: balance;
+  }
+
+  button, a, input, textarea, select {
+    outline-color: #5B7CFA;
+  }
+
+  :focus-visible {
+    outline: 2px solid #5B7CFA;
+    outline-offset: 2px;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Tactile anodized instrument shell (non-generic, architectural) */
+.eon-instrument {
+  background: linear-gradient(180deg, rgba(19, 22, 31, 0.94) 0%, rgba(11, 13, 18, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.10),
+    0 28px 70px -20px rgba(0, 0, 0, 0.92);
+}
+
+.eon-instrument:focus-within {
+  border-color: rgba(91, 124, 250, 0.55);
+  box-shadow:
+    inset 0 1px 0 0 rgba(155, 180, 255, 0.22),
+    0 28px 70px -18px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(91, 124, 250, 0.25);
+}
+
+/* Subtle anodized floating surface for docked controls & modals */
+.eon-panel {
+  background: rgba(13, 15, 21, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Editorial ink luminance */
+.eon-display-ink {
+  background: linear-gradient(180deg, #FFFFFF 0%, #D2D8E6 55%, #8D96AA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hide scrollbars on horizontal touch strips while preserving scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.pb-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

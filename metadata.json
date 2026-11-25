@@ -1,0 +1,6 @@
+{
+  "name": "EON",
+  "description": "Personal AI execution agent workspace for task planning, live browser activity, adaptive interfaces, and controlled action execution.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
